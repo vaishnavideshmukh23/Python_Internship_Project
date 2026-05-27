@@ -8,8 +8,8 @@ print('''
 
 #Welcome to the "Number Guessing Game" !!
 import random
-print("WELCOME TO THE GUESS THE NUBMER GAME !")
-print("Guess the number between 1 to 10 ?")
+print("WELCOME TO THE GUESS THE NUMBER GAME !")
+print("Guess the number between 1 to 100 ?")
 #Applied outer loop
 while True:
     secret_number = (random.randint(1, 100))
@@ -19,12 +19,18 @@ while True:
     while attempts > 0:
         #Gives input to the user
         user_guess = int(input("Enter your guess ?"))
-        #Applied if else statement
+        #Applied if elif else condition
         if user_guess == secret_number:
             print("Correct!! You guessed the number.")
+            win = True
+            break
+        elif user_guess < secret_number:
+            attempts -= 1
+            print("Too low!")
         else:
             attempts -= 1
-            print("Wrong")
+            print("Too high")
+
             #Applied nesetled if statement
             if attempts > 0:
                 print("Attempts left:", attempts)
